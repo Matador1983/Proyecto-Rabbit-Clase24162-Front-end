@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!-- METADATOS--> 
+<meta charset="utf-8">
+<meta name="author" content="Rabbit">
+<meta name="description" content="Recetas">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--Titulo-->
+<title>Rabbit</title>
+
+<!--Favicon-->
+<!--Favicon-->
+<link rel="icon" type="image/x-icon" href="static/imagenes/rabbit_icon_262558.ico">
+
+<!--Incluir Iconos -->  
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+
+<!-- Enlaza Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<!-- Enlaza Material Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<!-- HACEMOS REFERENCIA A UN DOCUMENTO CSS EXTERNO -->
+<link rel="stylesheet" href="/static/css/styleRegistro.css">
+
+<!-- HACEMOS REFERENCIA A LOS TIPOS DE LETRAS A USAR -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Satisfy&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Sniglet&display=swap" rel="stylesheet">
+
+
+
+<body >
+   
+   <!-- Barra de navegacion -->
+   <section class="Barra">
+    <nav class="menu1">
+     <input type="checkbox" id="check">
+     <label for="check" class="checkbtn">
+       <i class="fa-solid fa-list"></i>  
+    
+     </label>
+     <a href="#" class="enlace">
+       <img src="/static/imagenes/Rabbit5.png" alt="" class="logo">
+     </a>
+     <ul class="menu-horizontal">
+       <li><a class="active" href="index.html">Inicio</a></li>        
+       <li ><a href="Recetas.html">Recetas</a></li>
+       <li ><a href="Noticias.html">Noticias</a></li>
+       <li ><a href="Nosotros.html">Nosotros</a></li>
+       <li ><a href="Contact.html">Contacto</a></li>
+       <li ><a href="#" id="XXX">Usuario</a>
+       <li ><a href="#" id="XXX">Iniciar</a></li>
+       <li ><a href="#" id="XXX">Registrarse</a></li>  
+       </li>
+       <li  class="prueba" id="X4">
+         <a href="#" class="enlace2">
+           <img class ="img2" src="/static/imagenes/USer.png" alt="" >
+         </a>
+         <ul class="menu-vertical">
+           <li class="submenu"><a href="Inicio.html">Iniciar</a></li>
+           <li class="submenu"><a href="Registro.html">Registrarse</a></li>
+         </ul>
+ 
+       </li>
+     </ul>
+        
+   </nav> 
+   
+   </section>
+ 
+<!-- Seccion de Noticias-->
+
+<section class="titulos">
+  <div class="container ">    
+    <h1>Registro de Usuario para Rabbit</h1>    
+  </div>
+</section>
+
+<section class="seccion-contacto">
+  <div class="container">
+
+<form action="" class="formulario" id="formulario">
+
+ <!-- Grupo: Nombre -->
+ <div class="formulario__grupo" id="grupo__name">
+  <label for="name" class="formulario__label">Nombre</label>
+  <div class="formulario__grupo-input">
+    <input type="text" class="formulario__input" name="name" id="Name" placeholder="Nombres" required>
+    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+  </div>
+  <p class="formulario__input-error">El nombre solo puede contener letras.</p>
+</div>
+
+ <!-- Grupo: Apellido -->
+ <div class="formulario__grupo" id="grupo__surname">
+  <label for="surname" class="formulario__label">Apellido</label>
+  <div class="formulario__grupo-input">
+    <input type="text" class="formulario__input" name="surname" id="Surname" placeholder="Apellidos" required>
+    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+  </div>
+  <p class="formulario__input-error">El apellido  solo puede contener letras.</p>
+</div>
+
+
+
+
+
+
+
+
+
+  <!-- Grupo: Documento -->
+  <div class="formulario__grupo" id="grupo__dni">
+    <label for="dni" class="formulario__label">D.N.I</label>
+    <div class="formulario__grupo-input">
+      <input type="text" class="formulario__input" name="dni" id="id-dni" placeholder="Numero de Documento" required>
+      <i class="formulario__validacion-estado fas fa-times-circle"></i>
+    </div>
+    <p class="formulario__input-error">El nombre solo puede contener letras.</p>
+  </div>
+
+
+ <!-- Grupo: Correo Electronico -->
+ <div class="formulario__grupo" id="grupo__correo">
+  <label for="correo" class="formulario__label">Correo Electrónico</label>
+  <div class="formulario__grupo-input">
+    <input type="email" class="formulario__input" name="correo" id="id-correo" placeholder="correo@correo.com" required>
+    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+  </div>
+  <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+</div>
+
+
+  <!-- Grupo: Fecha Nacimiento-->
+  <div class="formulario__grupo" id="grupo__correo">
+    <label for="correo" class="formulario__label">Fecha Nacimiento</label>
+    <div class="formulario__grupo-input">
+      <input type="date" class="formulario__input" name="fecha" id="Fecha_nac" placeholder="DD/MM/AAAA" required>
+      <i class="formulario__validacion-estado fas fa-times-circle"></i>
+    </div>
+    <p class="formulario__input-error">.</p>
+  </div>
+
+ <!-- Grupo: Pais-->
+ <div class="formulario__grupo" id="grupo__pais">
+  <label for="pais" class="formulario__label">Pais de Residencia</label>
+  <div class="formulario__grupo-input">
+    <input type="text" class="formulario__input" name="pais" id="Country" placeholder="Pais" required>
+    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+  </div>
+  <p class="formulario__input-error">El pais solo puede contener letras.</p>
+</div>
+
+
+ <!-- Grupo: Nacionalidad -->
+ <div class="formulario__grupo" id="grupo__nacionalidad">
+  <label for="nacionalidad" class="formulario__label">Nacionalidad</label>
+  <div class="formulario__grupo-input">
+    <input type="text" class="formulario__input" name="nacionalidad" id="Nacionality" placeholder="Nacionalidad" required>
+    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+  </div>
+  <p class="formulario__input-error">La nacionalidad solo puede contener letras.</p>
+</div>
+
+
+ <!-- Grupo: Telefono -->
+ <div class="formulario__grupo" id="grupo__telefono">
+  <label for="telefono" class="formulario__label">Telefono</label>
+  <div class="formulario__grupo-input">
+    <input type="text" class="formulario__input" name="telefono" id="Phone" placeholder="Formato: 11-1234-5678"  required>
+    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+  </div>
+  <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+</div>
+
+
+
+
+
+
+  <!-- Grupo: Contraseña -->
+  <div class="formulario__grupo" id="grupo__password">
+    <label for="password" class="formulario__label">Contraseña</label>
+    <div class="formulario__grupo-input">
+      <input type="password" class="formulario__input" name="password" id="password">
+      <i class="formulario__validacion-estado fas fa-times-circle"></i>
+    </div>
+    <p class="formulario__input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>
+  </div>
+
+  <!-- Grupo: Contraseña 2 -->
+  <div class="formulario__grupo" id="grupo__password2">
+    <label for="password2" class="formulario__label">Repetir Contraseña</label>
+    <div class="formulario__grupo-input">
+      <input type="password" class="formulario__input" name="password2" id="password2">
+      <i class="formulario__validacion-estado fas fa-times-circle"></i>
+    </div>
+    <p class="formulario__input-error">Ambas contraseñas deben ser iguales.</p>
+  </div>
+
+
+  <!-- Grupo: Terminos y Condiciones -->
+  <div class="formulario__grupo" id="grupo__terminos">
+    <label class="formulario__label">
+      <input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
+      Acepta nuestro terminos y Condiciones.
+    </label>
+  </div>
+
+
+  <div class="formulario__grupo formulario__grupo-btn-enviar">
+    <input type="hidden"  name="id_receta" id="id-receta">
+    <button type="submit" class="formulario__btn" id="btn-add">Crear Usuario </button>
+   
+  </div>
+</form>
+</div>
+</section>
+
+
+
+<!------------------------------------------------------------------------------->
+<!-- Contacto -->
+
+<section id="contacto" class="contacto seccion-oscura">
+  <div class="container">
+    <div class=" rectangulo">
+      <div class="contacto-grid" >     
+        <div class="descripcion" id="contacto-1">             
+          Tu opinión es invaluable para nosotros y nos ayuda a mejorar constantemente nuestro contenido y servicios.  ¡Te esperamos! 🥕📩         
+        </div>
+        <div class="Contact" id="contacto-2" >             
+            <a href="mailto: aizzo1983@gmail.com">
+              <button type="button">  
+                Contacto
+                <i class="bi bi-envelope-check-fill"></i>
+              </button>
+            </a>          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!------------------------------------------------------------------------------->
+<!--Seccion de pie de pagina-->
+<footer class="seccion-oscura"> 
+  <img class="footer-logo" src="/static/imagenes/Rabbit4.png" alt="Logo del portafolio">  
+    <div class="redes-sociales" >     
+      <div id="red-1">
+         <a href="https://web.whatsapp.com/"><img class="logo1" src="/static/imagenes/wh.png" alt="Logo whatsapp">  
+         </a>
+      </div>
+      <div id="red-1">
+        <a href="https://x.com"><img class="logo1" src="/static/imagenes/tw.png" alt="Logo Twiter">  
+        </a>
+      </div>
+      <div id="red-1">
+        <a href="https://www.instagram.com/"><img class="logo1" src="/static/imagenes/inst.png" alt="Logo Instagram">  
+        </a>
+      </div>
+    </div>
+  
+  <div class="derechos-de-autor">Creado por Rabbit (2024) &#169;    
+  </div>
+</footer>
+
+</body>
+<script src="https://kit.fontawesome.com/dae609bc3b.js" crossorigin="anonymous"></script>
+<script src="/static/js/formulario.js"></script>
+<script src="/static/js/Crud.js"></script>
+<!-- <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script> -->
+</html>

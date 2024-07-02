@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="En">
+
+<head>
+<!-- METADATOS--> 
+<meta charset="utf-8">
+<meta name="author" content="Rabbit">
+<meta name="description" content="Recetas">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--Titulo-->
+<title>Rabbit</title>
+
+<!--Favicon-->
+<link rel="icon" type="image/x-icon" href="static/imagenes/rabbit_icon_262558.ico">
+
+
+<!--Incluir Iconos -->  
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+
+<!-- Enlaza Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<!-- Enlaza Material Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+<!-- HACEMOS REFERENCIA A UN DOCUMENTO CSS EXTERNO -->
+<link rel="stylesheet" href="./static/css/style.css"> 
+
+<!-- HACEMOS REFERENCIA A LOS TIPOS DE LETRAS A USAR -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Satisfy&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Sniglet&display=swap" rel="stylesheet">
+
+
+
+<script>
+ const BASEURL = 'http://127.0.0.1:5000';
+
+/**
+ * Función para realizar una petición fetch con JSON.
+ * @param {string} url - La URL a la que se realizará la petición.
+ * @param {string} method - El método HTTP a usar (GET, POST, PUT, DELETE, etc.).
+ * @param {Object} [data=null] - Los datos a enviar en el cuerpo de la petición.
+ * @returns {Promise<Object>} - Una promesa que resuelve con la respuesta en formato JSON.
+ */
+
+
+ async function fetchData(url, method, data = null) {
+  const options = {
+      method: method,
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: data ? JSON.stringify(data) : null,  // Si hay datos, los convierte a JSON y los incluye en el cuerpo
+  };
+
+  if (data && method !== 'GET') {
+        options.body = JSON.stringify(data);
+    }
+
+    try {
+
+
+        const response = await fetch(url, options);
+      
+        // Verificar si la respuesta es JSON
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+            const jsonData = await response.json();
+            
+            return jsonData;
+        } else {
+ 
+
+            const textData = await response.text();
+            throw new Error(`Unexpected content type: ${contentType}, received: ${textData}`);
+        }
+    } catch (error) {
+  
+
+        console.error('Fetch error:', error);
+        throw error;
+    }
+ }
+
+
+/**
+ * Función para comunicarse con el servidor para poder Crear o Actualizar
+ * un registro de pelicula
+ * @returns 
+ */
+ async function find_User(userid){
+ 
+
+  const result = await fetchData(`${BASEURL}/api/user/${userid}`, 'GET');
+    if (result.error) {
+        alert(result.error);
+    } else {
+       
+        alert(`Bienvenido a RABBIT:${result.apellido},${result.nombre}`);   
+      }
+ }
+
+  function getQueryParameter(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+  }
+
+
+
+  document.addEventListener('DOMContentLoaded', (event) => {
+      const iduser = getQueryParameter('iduser');
+      if (iduser) {
+          alert(`Bienvenido,  ${iduser}`);
+          // Aquí puedes usar el iduser para realizar más acciones, como cargar datos del usuario
+      } else {
+          alert('No se pudo obtener el ID del usuario.');
+      }
+
+       
+  });
+</script>
+
+
+<body >
+   <!-- Barra de navegacion -->
+   <section class="Barra">
+   <nav class="menu1">
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="fa-solid fa-list"></i>  
+   
+    </label>
+    <a href="#" class="enlace">
+      <img src="/static/imagenes/Rabbit5.png" alt="" class="logo">
+    </a>
+    <ul class="menu-horizontal">
+      <li><a class="active" href="index.html">Inicio</a></li>        
+      <li ><a href="Recetas.html">Recetas</a></li>
+      <li ><a href="Noticias.html">Noticias</a></li>
+      <li ><a href="Nosotros.html">Nosotros</a></li>
+      <li ><a href="Contact.html">Contacto</a></li>
+      <li ><a href="#" id="XXX">Usuario</a>
+      <li ><a href="#" id="XXX">Iniciar</a></li>
+      <li ><a href="#" id="XXX">Registrarse</a></li>  
+      </li>
+      <li  class="prueba" id="X4">
+        <a href="#" class="enlace2">
+          <img class ="img2" src="/static/imagenes/USer.png" alt="" >
+        </a>
+        <ul class="menu-vertical">
+					<li class="submenu"><a href="Inicio.html">Iniciar</a></li>
+					<li class="submenu"><a href="Registro.html">Registrarse</a></li>
+				</ul>
+
+      </li>
+		</ul>
+       
+  </nav> 
+  
+  </section>
+
+
+<section class="titulo ">
+  <div class="titulo-principal d-flex flex-column justify-content-center align-items-center">    
+    <h1>Bienvenido a Rabbit : <script>
+       const iduser = getQueryParameter('iduser');
+       document.write(iduser); 
+       const nombre = iduser.addEventListener('change', function(){find_User(iduser) });
+       
+       document.write(nombre); 
+       </script></h1>
+  </div>
+</section>
+
+<section class="parrafo">
+  <div class="texto-parrafo">  
+    <p>¡Bienvenidos a Rabbit, el santuario de los amantes de la buena comida y la pasión por la cocina! Nos emociona enormemente darles la más cálida bienvenida a nuestra página dedicada a explorar, experimentar y compartir el fascinante mundo de las recetas culinarias. </p>
+    <p> En Rabbit, no solo encontrarán una amplia variedad de recetas exquisitas que satisfarán todos los gustos y preferencias, sino que también descubrirán un espacio donde la creatividad y la innovación culinaria son celebradas. Desde platos tradicionales hasta creaciones innovadoras, desde las más sencillas hasta las más sofisticadas, aquí encontrarán inspiración para cada ocasión y nivel de habilidad en la cocina. </p>
+    <p> Nuestro equipo está comprometido en brindarles no solo recetas deliciosas, sino también consejos útiles, técnicas prácticas y trucos profesionales para elevar sus habilidades culinarias al siguiente nivel. Queremos acompañarlos en cada paso de su viaje gastronómico, desde la selección de ingredientes frescos hasta la presentación final de sus creaciones culinarias.</p>
+    <p>Pero Rabbit no es solo una página de recetas, es una comunidad vibrante de apasionados por la cocina que comparten el amor por los sabores, los aromas y las experiencias culinarias. Los invitamos a unirse a nosotros, a compartir sus propias recetas, consejos y experiencias culinarias, y a formar parte de esta emocionante aventura gastronómica.</p>
+    <p> Así que, prepárense para sumergirse en un mundo de sabores, texturas y colores. ¡Déjense llevar por la magia de la cocina y descubran nuevas formas de deleitar sus sentidos en Rabbit! ¡Bienvenidos a bordo!</p>
+    
+  </div>
+</section>
+
+<!------------------------------------------------------------------------------->
+<!-- Seccion de Noticias-->
+
+<section class="titulos">
+  <div class="container text-center">    
+    <h1>Noticias mas destacadas</h1>    
+  </div>
+</section>
+
+
+<section class="seccion-noticias">
+  <div class="container">
+      <div id="noticias-list" class="noticias-grid">
+          <div class="noticia" id="noticia-1">             
+            <img  class="noticia-img" src="/static/imagenes/foto1.jpg" alt="Foto">
+              <div class="overlay">
+                <a href="articulo.html"  >Plantas medicinales que no pueden faltar en la botica mexicana</a>             
+              </div>  
+              
+          </div>       
+          <div class="noticia" id="noticia-1">             
+            <img  class="noticia-img" src="/static/imagenes/foto4.png" alt="Foto">
+              <div class="overlay">
+                <a href="articulo1.html"  >Descubre los beneficios de comer 3 huevos a la semana</a>            
+              </div>             
+          </div>
+          <div class="noticia" id="noticia-1">             
+            <img  class="noticia-img" src="/static/imagenes/foto5.png" alt="Foto">
+              <div class="overlay">
+                <a href="Articulo2.html"  >Si quieres vivir más años, esto es lo que debes comer</a>           
+              </div>             
+          </div>
+           <div class="noticia" id="noticia-1">             
+            <img  class="noticia-img" src="/static/imagenes/foto3.png" alt="Foto">
+              <div class="overlay">
+                <a href="Articulo3.html"  >¿Qué es y en que consiste la dieta keto?</a>               
+              </div>             
+          </div> 
+          
+      </div>
+  </div>
+</section>
+<section class="link">
+  <div class="container text-center">    
+    <a href="Noticias.html"  >Mas noticias....</a>                   
+  </div>
+</section>
+<!------------------------------------------------------------------------------->
+<!-- Contacto -->
+
+<section id="contacto" class="contacto seccion-oscura">
+  <div class="container">
+    <div class=" rectangulo">
+      <div class="contacto-grid" >     
+        <div class="descripcion" id="contacto-1">             
+          Tu opinión es invaluable para nosotros y nos ayuda a mejorar constantemente nuestro contenido y servicios.  ¡Te esperamos! 🥕📩         
+        </div>
+        <div class="Contact" id="contacto-2" >             
+            <a href="mailto: aizzo1983@gmail.com">
+              <button type="button">  
+                Contacto
+                <i class="bi bi-envelope-check-fill"></i>
+              </button>
+            </a>          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!------------------------------------------------------------------------------->
+<!--Seccion de pie de pagina-->
+<footer class="seccion-oscura"> 
+  <img class="footer-logo" src="/static/imagenes/Rabbit4.png" alt="Logo del portafolio">  
+    <div class="redes-sociales" >     
+      <div id="red-1">
+         <a href="https://web.whatsapp.com/"><img class="logo1" src="/static/imagenes/wh.png" alt="Logo whatsapp">  
+         </a>
+      </div>
+      <div id="red-1">
+        <a href="https://x.com"><img class="logo1" src="/static/imagenes/tw.png" alt="Logo Twiter">  
+        </a>
+      </div>
+      <div id="red-1">
+        <a href="https://www.instagram.com/"><img class="logo1" src="/static/imagenes/inst.png" alt="Logo Instagram">  
+        </a>
+      </div>
+    </div>
+  
+  <div class="derechos-de-autor">Creado por Rabbit (2024) &#169;    
+  </div>
+</footer>
+
+</body>
+<script src="https://kit.fontawesome.com/dae609bc3b.js" crossorigin="anonymous"></script>
+<script src="/static/js/LeerDatos.js"></script>
+</html>
